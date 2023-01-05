@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <form>
+            <h1>Sample Form</h1>
+            <fieldset id="main">
+                <legend>Info</legend>
+                    <fieldset id="sub">
+                        <label for="First-name">Enter Name :<input type="text" placeholder=" Your Name" id="First-name" required></label>
+                        <label for="Last-name">Enter Last Name :<input type="text" placeholder=" Surname" id="Last-name" required></label>
+                        <label for="Middle-name">Enter Father's Name :<input type="text" placeholder=" Father's Name" id="Middle-name" required></label>
+                    </fieldset>
+                    <fieldset id="sub">
+                        <label for="Email">Enter your Email : <input type="email" placeholder=" @abc.com" id="Email"required></label>
+                        <label for="Comfirm-email">Confirm Email : <input type="email" placeholder=" @abc.com" id="Email"required></label>
+                    </fieldset>
+                    <fieldset id="sub">
+                        <div class="agediv">
+                        <label for="age">Age : <select id="age">
+                            <option value="">--default--</option>
+                            <option value="1">Below 13</option>
+                            <option value="2">14</option>
+                            <option value="3">15</option>
+                            <option value="4">16</option>
+                            <option value="5">17</option>
+                            <option value="6">18</option>
+                            <option value="7">19</option>
+                            <option value="8">20</option>
+                            <option value="9">21</option>
+                            <option value="10">22</option>
+                            <option value="11">23</option>
+                            <option value="12">24</option>
+                            <option value="13">25</option>
+                        </select></label>
+                    </div>
+                        <label for="gender">Gender :  
+                        <input type="radio" id="gender"name="gender" class="inline">MALE 
+                        <input type="radio" id="gender" name="gender" class="inline">FEMALE</label>
+                    </fieldset>
+            </fieldset>
+            <fieldset id="main">
+                <legend><h3>Address</h3></legend>
+                <div class="statediv">
+                <label for="state">State : <select id="state">
+                    <option value="">--default--</option>
+                    <option value="1">Gujarat</option>
+                    <option value="2">option A</option>
+                    <option value="3">Why Gujarat</option>
+                    <option value="4">South of Rajasthan</option>
+                    <option value="5">East of Madhya Pardesh</option>
+                </select></label>
+                </div>
+                <div class="citydiv">
+                <label for="city">City : <select id="City">
+                    <option value="">--default--</option>
+                    <option value="1">Rajkot</option>
+                    <option value="2">option A</option>
+                    <option value="3">Why Rajkot</option>
+                    <option value="4">Where I live</option>
+                    <option value="5">City which starts with R ends with t and has ajko in middle</option>
+                </select></label>
+            </div>
+                <label for="Address">Address : <br><textarea id="Address" rows="3" cols="30"></textarea></label>
+            </fieldset>
+            <fieldset>
+                <button id="submit"type="submit"><a href="Password-check.html">Submit</a></button>
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+body{
+    background-color: #1b1b32;
+    color: white;
+    padding: 10px;
+    margin: auto;
+    font-size: 16px;
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+}
+form{
+    width: 600vw;
+    max-width: 600px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+#main{
+    padding: 5px;
+    margin: 5px 5px 10px 5px;
+    border: none;
+}
+#sub{
+    padding: 5px;
+    padding-bottom: 10px;
+    border: none;
+    
+}
+fieldset:last-of-type {
+    border: none;
+    padding: auto;
+}
+input{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background-color: #0a0a23;
+    color: aliceblue;
+}
+label{
+    margin-bottom: 10px;
+}
+.inline{
+    width: unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.agediv{
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1b1b33;
+    background-color: #1b1b33;
+}
+#age, #state, #city, textarea{
+    background-color: #0a0a23;
+    color: aliceblue;
+}
+.statediv, .citydiv, textarea{
+    margin-bottom: 20px;
+}
+textarea{
+    margin-top: 5px;
+}
+.submit{
+    display: block;
+    margin: auto;
+    padding: auto;
+}
+button{
+    display: block;
+    margin: auto;
+    width: 20%;
+    background-color: #1b1b5f;
+    color: aliceblue;
+}
+#password{
+    width: 50%;
+}
+.mainpassword{
+    margin-top: 30px;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+.Title{
+    margin-bottom: 50px;
+}
+.password{
+    text-align: left                ;
+}
