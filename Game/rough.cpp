@@ -4,38 +4,45 @@
 #include <cstdlib>
 #include <time.h>
 
+
 using namespace std;
 
 //character
 struct character{
-
+public:
     string name;
     int health;
     int inventory[3];                       
 }characterstr;
 //weapons
 struct axe{
+public:
     int damage;
     int weaponHealth;
 }vaxe;
 struct sword{
+public:
     int damage;
     int weaponHealth;
 }vsword;
 struct bow{
+public:
     int damage;
     int weaponHealth;
 }vbow;
 struct katana{
+public:
     int damage;
     int weaponHealth;
 }vkatana;
-struct shuriken{ 
+struct shuriken{
+public: 
     int damage;
     int weaponHealth;
 }vshuriken;
 
 struct weapon{
+public:
      struct axe vaxe;
      struct sword vsword;
      struct bow vbow;
@@ -46,15 +53,161 @@ struct weapon{
 
 //enemy
 struct enemy{
+public:
     string enemyName;
     int damage;
     int health;
     int enemyWeaponHealth;
 }enemystr;
 
+struct mainn{
+     struct axe vaxe;
+     struct sword vsword;
+     struct bow vbow;
+     struct katana vkatana;
+     struct shuriken vshuriken;
+     struct enemy enemystr;
+     struct character characterstr;
+}mainnstr;
+
+
+void charHealth(int finalMoves[], struct mainn mainnstr, int j, int weaponHealth[], int *weaponNum){        
+                        //finalmove 1
+                        if (finalMoves[j] == 1 && finalMoves[j+1] == 0){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if(weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - 2;
+                                    weaponHealth[*weaponNum] -= 1;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }   
+                        else if (finalMoves[j] == 1 && finalMoves[j+1] == 1){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - 2;
+                                    weaponHealth[*weaponNum] -= 1;
+                                }
+                                if(enemystr.enemyWeaponHealth > 0 || characterstr.health <= 0 || enemystr.health <= 0){
+                                    characterstr.health = characterstr.health - 2;
+                                    enemystr.enemyWeaponHealth -= 1; 
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 1 && finalMoves[j+1] == 2){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - 1;  
+                                    weaponHealth[*weaponNum] -= 1;  
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 1 && finalMoves[j+1] == 3){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - 2;
+                                    weaponHealth[*weaponNum] -= 1;
+                                }
+                                if(enemystr.enemyWeaponHealth > 0){
+                                    characterstr.health = characterstr.health - characterstr.health / 2;
+                                    enemystr.enemyWeaponHealth = enemystr.enemyWeaponHealth/2;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }   // finalmove 2 
+                        else if (finalMoves[j] == 2 && finalMoves[j+1] == 0){
+                            //nothing will happen
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }   
+                        else if (finalMoves[j] == 2 && finalMoves[j+1] == 1){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if(enemystr.enemyWeaponHealth > 0){
+                                    characterstr.health = characterstr.health - 1;
+                                    enemystr.enemyWeaponHealth -= 1;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 2 && finalMoves[j+1] == 2){
+                            //nothing will happen
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 2 && finalMoves[j+1] == 3){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if(enemystr.enemyWeaponHealth > 0){
+                                    characterstr.health = characterstr.health - (characterstr.health)/2 + 1;
+                                    enemystr.enemyWeaponHealth = enemystr.enemyWeaponHealth/2;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        } //finalmove 3
+                        else if (finalMoves[j] == 3 && finalMoves[j+1] == 0){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - enemystr.health/2;
+                                    weaponHealth[*weaponNum] = weaponHealth[*weaponNum]/2;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }   
+                        else if (finalMoves[j] == 3 && finalMoves[j+1] == 1){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - enemystr.health/2;
+                                    weaponHealth[*weaponNum] = weaponHealth[*weaponNum]/2;
+                                }
+                                if(enemystr.enemyWeaponHealth > 0 || characterstr.health <= 0 || enemystr.health <= 0){
+                                    characterstr.health = characterstr.health - 2;
+                                    enemystr.enemyWeaponHealth -= 1;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 3 && finalMoves[j+1] == 2){
+                            if(characterstr.health >= 0 || enemystr.health >= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - (enemystr.health)/2 + 1;
+                                    weaponHealth[*weaponNum] = weaponHealth[*weaponNum]/2;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }
+                        else if (finalMoves[j] == 3 && finalMoves[j+1] == 3){
+                            if(characterstr.health <= 0 || enemystr.health <= 0){
+                                if (weaponHealth[*weaponNum] > 0){
+                                    enemystr.health = enemystr.health - enemystr.health/2;
+                                }
+                                if(enemystr.enemyWeaponHealth > 0 || characterstr.health <= 0 || enemystr.health <= 0){
+                                characterstr.health = characterstr.health - characterstr.health / 2;
+                                }
+                            }
+                            cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+                            cout<<"Weapon's Health"<<weaponHealth[*weaponNum];
+                        }   
+}
+
+
 int  main(){//Variables
     int Level = 0, score = 0, attack[3], enemyAttack[3], finalMoves[6];
-    int lower_value = 0, upper_value = 3, weaponHealth = 0;
+    int lower_value = 0, upper_value = 3;
+    int weaponHealth[3]; 
+    int Num=0;
+    int *weaponNum = &Num;
+    int numj = 0;
+    int *j = &numj;
     //stats
     characterstr.health = 25;
 
@@ -134,7 +287,7 @@ int  main(){//Variables
     cout<<"FIGHT!!!\n\n";       //attacking mechanism starts
     while (enemystr.health > 0 && characterstr.health > 0)
     {   
-        cout<<enemystr.health<<"\n";
+        //cout<<enemystr.health<<"\n";
         cout<<"You are fighting with "<<enemystr.enemyName<<"\n";
         for (int i = 0; i < 3; i++)
         {
@@ -155,114 +308,47 @@ int  main(){//Variables
          {
              if (k%2==0){
                  finalMoves[k] = attack[k/2];
-                 cout<<"even = "<<finalMoves[k]<<"\n";
+                 //cout<<"even = "<<finalMoves[k]<<"\n";
              }
              else{
                  finalMoves[k] = enemyAttack[k/2];
-                 cout<<"odd = "<<finalMoves[k]<<"\n";
+                 //cout<<"odd = "<<finalMoves[k]<<"\n";
              }
-         }
-            //for checking of weapon
-            // for (int a = 0; a < 3; a++)
-            // {
-            //     if (characterstr.inventory[a] == 1)
-            //     {
-            //         //weapon = weaponstr.vaxe.health; 
-            //     }  
-            //}
-            weaponHealth = 10;
-        for (int j = 0; j < 6; j+=2)
-        {   //finalmove 1
-            if (finalMoves[j] == 1 && finalMoves[j+1] == 0){
-                if(weaponHealth>0){ 
-                    enemystr.health = enemystr.health - 2;
-                    weaponHealth-1; 
-                    }
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            }   
-            else if (finalMoves[j] == 1 && finalMoves[j+1] == 1){
-                enemystr.health = enemystr.health - 2;
-                characterstr.health = characterstr.health - 2;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+        }
+
+        int n=0;
+        for (int i = 0; i < 3; i++)
+        {
+            if (characterstr.inventory[i] == 1){
+                weaponHealth[n] == weaponstr.vaxe.weaponHealth;
+                n++;
             }
-            else if (finalMoves[j] == 1 && finalMoves[j+1] == 2)
-            {
-                enemystr.health = enemystr.health - 1;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+            if (characterstr.inventory[i] == 2){
+                weaponHealth[n] == weaponstr.vsword.weaponHealth;
+                n++;
             }
-            else if (finalMoves[j] == 1 && finalMoves[j+1] == 3)
-            {
-                enemystr.health = enemystr.health - 2;
-                characterstr.health = characterstr.health - characterstr.health / 2;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            } // finalmove 2 
-            else if (finalMoves[j] == 2 && finalMoves[j+1] == 0){
-                //nothing will happen
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            }   
-            else if (finalMoves[j] == 2 && finalMoves[j+1] == 1){
-                characterstr.health = characterstr.health - 1;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+            if (characterstr.inventory[i] == 3){
+                weaponHealth[n] == weaponstr.vbow.weaponHealth;
+                n++;
             }
-            else if (finalMoves[j] == 2 && finalMoves[j+1] == 2)
-            {
-                //nothing will happen
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+            if (characterstr.inventory[i] == 4){
+                weaponHealth[n] == weaponstr.vkatana.weaponHealth;
+                n++;
             }
-            else if (finalMoves[j] == 2 && finalMoves[j+1] == 3)
-            {
-                characterstr.health = characterstr.health - (characterstr.health)/2 + 1;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            } //finalmove 3
-            if (finalMoves[j] == 3 && finalMoves[j+1] == 0){
-                enemystr.health = enemystr.health - enemystr.health/2;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            }   
-            else if (finalMoves[j] == 3 && finalMoves[j+1] == 1){
-                enemystr.health = enemystr.health - enemystr.health/2;
-                characterstr.health = characterstr.health - 2;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+            if (characterstr.inventory[i] == 5){
+                weaponHealth[n] == weaponstr.vshuriken.weaponHealth;
+                n++;
             }
-            else if (finalMoves[j] == 3 && finalMoves[j+1] == 2)
-            {
-                enemystr.health = enemystr.health - (enemystr.health)/2 + 1;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
+            
+        }
+        
+        if(weaponHealth[*weaponNum] > 0){
+            for (*j = 0; *j < 6; *j+=2){
+                charHealth(finalMoves, mainnstr, *j, weaponHealth, weaponNum);
             }
-            else if (finalMoves[j] == 3 && finalMoves[j+1] == 3)
-            {
-                enemystr.health = enemystr.health - enemystr.health/2;;
-                characterstr.health = characterstr.health - characterstr.health / 2;
-                cout<<characterstr.name<<"'s health is "<<characterstr.health<<"\n"<<enemystr.enemyName<<"'s health is "<<enemystr.health<<"\n";
-            }   
+        }
+        else{
+            *weaponNum = *weaponNum + 1;
         }
     }
 }
-
-
-/*
-axe = 1; sword = 2 bow = 3 ..
-inventory ={ axe bow sword}
-n=0
-for(int i=0; i<3; i++){
-    if(character.invrntory[i] == 1)
-    weaponhealth[n]=weaponhealth.vaxe;
-    n++
-
-    else if(character.invrntory[i] == 2)
-    weaponhealth[n]=weaponhealth.vsword;
-    n++
-
-    else if(character.invrntory[i] == 3)
-    weaponhealth[n]=weaponhealth.vbow;
-    n++
-
-    else if(character.invrntory[i] == 4)
-    weaponhealth[n]=weaponhealth.vkat;
-    n++
-
-    else if(character.invrntory[i] == 5)
-    weaponhealth[n]=weaponhealth.vshru;
-    n++
-}d
-    
-*/

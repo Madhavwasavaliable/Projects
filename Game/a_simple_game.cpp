@@ -225,3 +225,30 @@ int  main(){//Variables
         }
     }
 }
+/*
+axe = 1; sword = 2 bow = 3 ..
+inventory ={ axe bow sword}
+n=0
+for(int i=0; i<3; i++){
+    if(character.invrntory[i] == 1)
+    weaponhealth[n]=weaponhealth.vaxe;
+    n++
+
+    else if(character.invrntory[i] == 2)
+    weaponhealth[n]=weaponhealth.vsword;
+    n++
+
+    else if(character.invrntory[i] == 3)
+    weaponhealth[n]=weaponhealth.vbow;
+    n++
+
+    else if(character.invrntory[i] == 4)
+    weaponhealth[n]=weaponhealth.vkat;
+    n++
+
+    else if(character.invrntory[i] == 5)
+    weaponhealth[n]=weaponhealth.vshru;
+    n++
+}
+    
+*/

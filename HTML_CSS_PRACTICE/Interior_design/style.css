@@ -1,0 +1,20 @@
+body{
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+}
+.Background{
+    background:rgba(0, 0, 0, 0.6) url(./spacejoy-PyeXkOVmG1Y-unsplash.jpg);
+    background-size: 100%;
+    width: 100%;
+    height: 760px;
+    background-blend-mode: darken;
+}
+.Menu{
+    padding: 20px 110px;
+    font: bolder;
+    color: azure;
+    font-family:'Courier New', Courier, monospace;
+}
+.Menu h1{
+    
+}
